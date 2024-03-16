@@ -1,6 +1,6 @@
 import { Box, Button, Typography, styled } from "@mui/material";
 import { ShoppingCart } from "@mui/icons-material";
-import {useState,useContext} from 'react';
+import { useState ,useContext} from 'react';
 import LoginDialog from '../login/LoginDialog';
 import { DataContext } from "../../context/DataProvider";
 import Profile from "./Profile";
@@ -67,7 +67,6 @@ const CustomerButtons = () =>{
              account ? <Profile account={account} setAccount={setAccount}/>:
              <LoginButton variant="outlined"  onClick={()=>openDialog()}>Login</LoginButton>
           }
-           <LoginButton variant="outlined"  onClick={()=>openDialog()}>Login</LoginButton>
         <Typography style={{ marginTop: 3, width: 135 }}>
           Become a Seller
         </Typography>
