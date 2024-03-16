@@ -1,6 +1,7 @@
 import { Typography, Box, styled } from '@mui/material'; 
 
-import { navData } from '../constant/data';
+
+import { navData } from '../../constants/data';
 
 const Component = styled(Box)(({ theme }) => ({
     display: 'flex',
@@ -28,8 +29,8 @@ const NavBar = () => {
         <Component>
             {
                 navData.map(temp => (
-                    <Container>
-                        <img src={temp.url} style={{  width: 64 }} />
+                    <Container key={temp.id}>
+                        <img src={temp.url} style={{ width: 64 }} />
                         <Text>{temp.text}</Text>
                     </Container>
                 ))
@@ -37,5 +38,6 @@ const NavBar = () => {
         </Component>
     )
 }
+
 
 export default NavBar;

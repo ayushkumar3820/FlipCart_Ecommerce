@@ -1,9 +1,7 @@
 import Carousel from "react-multi-carousel";
 import 'react-multi-carousel/lib/styles.css';
-import { bannerData } from "../constant/data";
+import { bannerData } from "../../constants/data";
 import styled from "@emotion/styled";
-
-
 
 
 const Image=styled('img')({
