@@ -1,8 +1,11 @@
-import express from 'express';
-//import { userSignUp } from '../contrlloer/user-controller';
-const router=express.Router();
-router.post('/signup',()=>{
-    console.log("from is working in comsole log");
-})
+
+import express from  'express';
+const router = express.Router();
+import {userSignUp}  from '../contrlloer/user-controller.js';
+
+
+//login & signup
+router.post('/signup', userSignUp);
+
 
 export default router;
