@@ -1,9 +1,7 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-
-
-const productSchema= new mongoose.Schema({
-    id: {
+const productSchema = new mongoose.Schema({
+    id:{
         type:String,
         required:true,
         unique:true
@@ -18,6 +16,5 @@ const productSchema= new mongoose.Schema({
     tagline: String
 });
 
-
-const products=mongoose.model('product',productSchema);
+const products = mongoose.model('product', productSchema);
 export default products;

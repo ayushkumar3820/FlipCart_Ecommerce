@@ -1,9 +1,10 @@
-
+import { useEffect } from "react";
 import { Box,styled } from "@mui/material";
 import Banner from "./Banner";
 import NavBar from "./NavBar";
 import {Fragment} from 'react';
-
+import { getProducts } from "../../redux/actions/productActions.js";
+import { useDispatch,useSelector  } from "react-redux";
 
 
 const Component = styled(Box)`
@@ -12,6 +13,15 @@ const Component = styled(Box)`
 `;
 
 const Home = () => {
+    const {products} = useSelector(state =>state.getProducts); //redux store state hai naki jo import kie h
+    console.log(products);
+
+    const dispatch=useDispatch();
+
+    useEffect(()=>{
+        dispatch(getProducts())
+    },[dispatch])
+
     return (
         <Fragment>
              <NavBar/>
