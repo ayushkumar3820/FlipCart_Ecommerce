@@ -5,6 +5,9 @@ import NavBar from "./NavBar";
 import {Fragment} from 'react';
 import { getProducts } from "../../redux/actions/productActions.js";
 import { useDispatch,useSelector  } from "react-redux";
+import {Slide} from './Slide.jsx'
+import {MidSlide} from './MidSlide.jsx'
+import MidSection from './MidSection.jsx';
 
 
 const Component = styled(Box)`
@@ -13,7 +16,7 @@ const Component = styled(Box)`
 `;
 
 const Home = () => {
-    const {products} = useSelector(state =>state.getProducts); //redux store state hai naki jo import kie h
+    const {products} = useSelector(state =>state.getProducts); 
     console.log(products);
 
     const dispatch=useDispatch();
@@ -27,6 +30,12 @@ const Home = () => {
              <NavBar/>
                  <Component>
                      <Banner/>
+                         <MidSlide products={products} title="Suggested Items" timer={false}/> <MidSection/>
+                         <Slide products={products} title="Suggested Items" timer={false}/>
+                         <Slide products={products} title="Top Selection" timer={false}/>
+                         <Slide products={products} title="Recommended Items" timer={false}/>
+                         <Slide products={products} title="Session's Top picks" timer={true}/>
+                         <Slide products={products} title="Top Deals on Accessories" timer={false}/>  
                  </Component>
         </Fragment>
     )
