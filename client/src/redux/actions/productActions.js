@@ -13,3 +13,17 @@ export const getProducts=()=>async(dispatch)=>{
     }
 
 }
+
+
+export const getProductsDetalis = () => async (dispatch)=>{
+    try{
+             dispatch({type:actionTypes.GET_PRODUCTS_DETAILS_REQUEST})
+             let {data}=await axios.get(`${url}/products`)
+             dispatch({type:actionTypes.GET_PRODUCTS_DETAILS_SUCCESS,payload:data});
+    }
+    catch (error){
+        dispatch({type:actionTypes.GET_PRODUCTS_DETAILS_FAIL,payload:error });
+
+    }
+
+}

@@ -2,8 +2,10 @@ import {createStore ,combineReducers,applyMiddleware} from 'redux';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import { getProductsReducer } from './reducers/productReducer.js';
+import { getProductDetailsReducer } from './reducers/productReducer.js';
 const reducer=combineReducers({
-    getProducts:getProductsReducer
+    getProducts:getProductsReducer,
+    getProductDetails:getProductDetailsReducer
 }
 )
 

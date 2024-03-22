@@ -3,7 +3,7 @@ import Carousel from 'react-multi-carousel';
 import "react-multi-carousel/lib/styles.css";
 import { Button, Divider, Box, Typography, styled } from '@mui/material';
 import Countdown from 'react-countdown';
-
+import { Link } from 'react-router-dom';
 
 
 const responsive = {
@@ -75,10 +75,10 @@ const Image = styled('img')({
     width: 'auto',
     height: 150
 })
-// const Links = styled(Link)({
-//     textDecoration:'none',
-//     marginLeft:'auto'
-// })
+const Links = styled(Link)({
+    textDecoration:'none',
+    marginLeft:'auto'
+})
 
 const Text = styled(Typography)`
     font-size: 14px;
@@ -93,7 +93,9 @@ export const Slide = ({products,title,timer}) => {
         return <RenderTimer variant="span">{hours} : {minutes} : {seconds}  Left</RenderTimer>;
     };
 
-   
+    if (!products) {
+        return null;
+    }
      return(
         <Component>
             <Deal>
@@ -109,9 +111,9 @@ export const Slide = ({products,title,timer}) => {
                     </Timer>
                 }
                 
-                
+                <Links to={`product/product2`}>
                 <ViewAllButton variant="contained" color="primary">View All</ViewAllButton>
-            
+                </Links>
 
 
             </Deal>
@@ -135,14 +137,14 @@ export const Slide = ({products,title,timer}) => {
                 {
                     products.map(temp => (
 
-                       
+                        <Link to={`product/${temp.id}`} style={{textDecoration: 'none'}}>
                             <Box textAlign="center" style={{ padding: '25px 15px' }}>
                                 <Image src={temp.url} />
                                 <Text style={{ fontWeight: 600, color: '#212121' }}>{temp.title.shortTitle}</Text>
                                 <Text style={{ color: 'green' }}>{temp.discount}</Text>
                                 <Text style={{ color: '#212121', opacity: '.6' }}>{temp.tagline}</Text>
                             </Box>
-                        
+                        </Link>
                     ))
                 }
            </Carousel>
