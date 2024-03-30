@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+
 const productSchema = new mongoose.Schema({
     id:{
         type:String,
@@ -17,4 +18,5 @@ const productSchema = new mongoose.Schema({
 });
 
 const products = mongoose.model('product', productSchema);
+
 export default products;

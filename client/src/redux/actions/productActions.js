@@ -1,29 +1,26 @@
-
 import axios from "axios";
 import * as actionTypes from '../constants/productConstants';
 
 const url = 'http://localhost:8000';
-export const getProducts=()=>async(dispatch)=>{
-    try{
-        let {data}=await axios.get(`${url}/products`)
-        dispatch({type:actionTypes.GET_PRODUCTS_SUCCESS,payload:data});
+
+export const getProducts = () => async (dispatch) => {
+    try {
+        const { data } = await axios.get(`${url}/products`);
+        dispatch({ type: actionTypes.GET_PRODUCTS_SUCCESS, payload: data });
+    } catch (error) {
+        dispatch({ type: actionTypes.GET_PRODUCTS_FAIL, payload: error.message });
     }
-    catch(err){
-        dispatch({type:actionTypes.GET_PRODUCTS_FAIL,payload:err.messsage});
+};
+
+ const getProductDetails = (id) => async (dispatch) => {
+    try {
+        dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_REQUEST });
+        const { data } = await axios.get(`${url}/product/${id}`); // Fixed endpoint
+        dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_SUCCESS, payload: data }); // Fixed action type
+    } catch (error) {
+        dispatch({ type: actionTypes.GET_PRODUCT_DETAILS_FAIL, payload: error });
     }
+};
 
-}
 
-
-export const getProductsDetalis = () => async (dispatch)=>{
-    try{
-             dispatch({type:actionTypes.GET_PRODUCTS_DETAILS_REQUEST})
-             let {data}=await axios.get(`${url}/products`)
-             dispatch({type:actionTypes.GET_PRODUCTS_DETAILS_SUCCESS,payload:data});
-    }
-    catch (error){
-        dispatch({type:actionTypes.GET_PRODUCTS_DETAILS_FAIL,payload:error });
-
-    }
-
-}
+export default getProductDetails;

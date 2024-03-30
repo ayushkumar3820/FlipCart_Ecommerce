@@ -111,6 +111,7 @@ export const Slide = ({products,title,timer}) => {
                     </Timer>
                 }
                 
+                
                 <Links to={`product/product2`}>
                 <ViewAllButton variant="contained" color="primary">View All</ViewAllButton>
                 </Links>
@@ -135,14 +136,14 @@ export const Slide = ({products,title,timer}) => {
             centerMode={true}
             >
                 {
-                    products.map(temp => (
+                    products.map(product => (
 
-                        <Link to={`product/${temp.id}`} style={{textDecoration: 'none'}}>
+                        <Link to={`product/${product.id}`} style={{textDecoration: 'none'}}>
                             <Box textAlign="center" style={{ padding: '25px 15px' }}>
-                                <Image src={temp.url} />
-                                <Text style={{ fontWeight: 600, color: '#212121' }}>{temp.title.shortTitle}</Text>
-                                <Text style={{ color: 'green' }}>{temp.discount}</Text>
-                                <Text style={{ color: '#212121', opacity: '.6' }}>{temp.tagline}</Text>
+                                <Image src={product.url} />
+                                <Text style={{ fontWeight: 600, color: '#212121' }}>{product.title.shortTitle}</Text>
+                                <Text style={{ color: 'green' }}>{product.discount}</Text>
+                                <Text style={{ color: '#212121', opacity: '.6' }}>{product.tagline}</Text>
                             </Box>
                         </Link>
                     ))

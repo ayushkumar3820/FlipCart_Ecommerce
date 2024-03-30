@@ -14,13 +14,13 @@ export const getProducts = async(req,res)=>{
     }
 }
 
-export const getProductsById=async(req,res)=>{
+export const getProductById=async(req,res)=>{
     try{
         const id=req.params.id;
         const product= await Product.findOne({'id':id});
         res.status(200).json(product);
     }
     catch(error){
-         res.status(500).json({message:error.message});
+         res.status(500).json({message: error.message});
     }
 }
