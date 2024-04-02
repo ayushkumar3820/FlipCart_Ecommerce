@@ -80,11 +80,12 @@ const CustomerButtons = () =>{
         </Typography>
         <Typography style={{ marginTop: 3 }}>More</Typography>
   
-        <Container to="/cart">
-        <Badge badgeContent={cartItems?.length} color='secondary'>
-        </Badge>
-        <Typography style={{marginLeft:5}}>Cart</Typography>
-      </Container>
+        <Container to='/cart'>
+                <Badge badgeContent={cartItems?.length} color="secondary">
+                    <ShoppingCart />
+                </Badge>
+                <Typography style={{ marginLeft: 10 }}>Cart</Typography>
+            </Container>
               <LoginDialog open={open} setOpen={setOpen}/>
       </Wrapper>
     )

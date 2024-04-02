@@ -18,3 +18,14 @@ export const authenticateSignup = async (user) => {
     }
 }
 
+
+export const payUsingPaytm = async (data) =>{
+    try{
+
+        let reponse= await  axios.post(`${url}/payment`,data);
+         return  reponse;
+    }
+    catch(error){
+        console.log('Error',error);
+    }
+} 
