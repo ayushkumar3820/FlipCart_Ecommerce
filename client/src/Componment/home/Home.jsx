@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Box,styled } from "@mui/material";
-import Banner from "./Banner";
+import { Banner } from "./Banner.jsx";
 import NavBar from "./NavBar";
 import {Fragment} from 'react';
 import { getProducts } from "../../redux/actions/productActions.js";
@@ -10,10 +10,15 @@ import {MidSlide} from './MidSlide.jsx'
 import MidSection from './MidSection.jsx';
 
 
-const Component = styled(Box)`
-    padding: 10px 10px;
-    background: #F2F2F2;
-`;
+const Component = styled(Box)(({ theme }) => ({
+
+    padding:'0px 7px 15px 7px',
+    background:'#F2F2F2',
+    
+    [theme.breakpoints.down('md')]: {
+      padding:'0'
+  }
+  }));
 
 const Home = () => {
     const {products} = useSelector((state) =>state.getProducts); 

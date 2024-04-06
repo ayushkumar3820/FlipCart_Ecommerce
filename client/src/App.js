@@ -6,9 +6,11 @@ import DataProvider from './context/DataProvider';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DetaliView from './detalis/DetailView';
 import Cart from './Componment/cart/Cart';
+import Footer from './Componment/Footer/Footer';
 
 function App() {
   return (
+    <>
     <DataProvider>
       <BrowserRouter>
         <Header />
@@ -21,6 +23,8 @@ function App() {
         </Box>
       </BrowserRouter>
     </DataProvider>
+    <Footer/>
+    </>
   );
 }
 

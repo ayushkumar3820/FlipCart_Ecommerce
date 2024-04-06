@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
-
 import SearchIcon from '@mui/icons-material/Search';
 import { InputBase, List, ListItem, Box, styled } from '@mui/material';
-
-import { useSelector, useDispatch } from 'react-redux'; // hooks
+import { useSelector, useDispatch } from 'react-redux'; 
 import { getProducts as listProducts } from '../../redux/actions/productActions';
 import { Link } from 'react-router-dom';
 
@@ -13,13 +11,14 @@ const SearchContainer = styled(Box)`
   width: 38%;
   background-color: #fff;
   display: flex;
+  margin-bottom: 12 px;
 `;
 
 const SearchIconWrapper = styled(Box)`
   margin-left: auto;
   padding: 5px;
   display: flex;
-  color: blue;
+  color: #2874f0;
 `;
 
 const ListWrapper = styled(List)`
