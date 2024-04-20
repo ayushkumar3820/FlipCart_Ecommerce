@@ -1,70 +1,50 @@
-import paytmchecksum from '../paytm/PaytmChecksum.js';
-// import { paytmParams, paytmMerchantkey } from '../index.js';
-//import formidable  from 'fformidable';
-import https from 'https';
+import Order from "../model/orderSchema.js";
+import Razorpay from "razorpay";
 
-export const addPaymentGateway= async(req,res)=>{
-const paytmCheckSum  = await paytmchecksum.generateSignature(paytmParams,paytmMerchantkey);
-try{
-    const params = {
-        ...paytmParams,
-        'CHECKSUMHASH': paytmCheckSum
+
+export const createOrder = (request, response) => {
+  try {
+    const instance = (instance = new Razorpay({
+      key_id: process.env.RAZORPAY_KEY_ID,
+      key_secret: process.env.RAZORPAY_KEY_SECRET,
+    }));
+   console.log(request.body);
+   
+    const options = {
+      amount: request.body.price,
+      currency: "INR",
     };
+    const order = instance.create(options);
+    if (!order) response.send("Some error occurred");
+    response.send(order);
+  } catch (error) {
+    response.send(error);
+  }
+};
 
-    response.json(params);
-}
-catch(error){
-    console.log(error.message);
-}
+export const payOrder = async (request, response) => {
+  // console.log("triiggerd payOder");
+  // console.log(request.body);
+  try {
+    const { amount, razorpayPaymentId, razorpayOrderId, razorpaySignature } =
+      request.body;
+    const newOrder = Order.create({
+      isPaid: true,
+      amount: amount,
+      razorpay: {
+        order_id: razorpayOrderId,
+        payment_id: razorpayPaymentId,
+        signature: razorpaySignature,
+      },
+    });
+    await response.send({msg:"payment was successfull"});
+  } catch (error) {
+    response.send(error);
+  }
+};
 
-}
-
-
-export const paymentResponse = (request, response) => {
-
-    const form = new formidable.IncomingForm();
-    const paytmCheckSum = request.body.CHECKSUMHASH;
-    delete request.body.CHECKSUMHASH;
-
-    const isVerifySignature = paytmchecksum.verifySignature(request.body, 'bKMfNxPPf_QdZppa', paytmCheckSum);
-    if (isVerifySignature) {
-        let paytmParams = {};
-        paytmParams["MID"] = request.body.MID;
-        paytmParams["ORDERID"] = request.body.ORDERID;
-
-        paytmchecksum.generateSignature(paytmParams, 'bKMfNxPPf_QdZppa').then(function (checksum) {
-
-            paytmParams["CHECKSUMHASH"] = checksum;
-
-            const post_data = JSON.stringify(paytmParams);
-
-            const options = {
-                hostname: 'securegw-stage.paytm.in',
-                port: 443,
-                path: '/order/status',
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Content-Length': post_data.length
-                }
-            };
-
-            let res = "";
-            const post_req = https.request(options, function (post_res) {
-                post_res.on('data', function (chunk) {
-                    res += chunk;
-                });
-
-                post_res.on('end', function () {
-                    let result = JSON.parse(res);
-                    console.log(result);
-                    response.redirect(`http://localhost:3000/`)
-                });
-            });
-            post_req.write(post_data);
-            post_req.end();
-        });
-    } else {
-        console.log("Checksum Mismatched");
-    }
+export const paymentResponse= async(request,response)=>{
+ const orders=await Order.find();
+ console.log(orders);
+ response.send(orders);
 }

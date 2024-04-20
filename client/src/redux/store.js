@@ -4,12 +4,14 @@ import thunk from 'redux-thunk';
 import { cartReducer } from './reducers/cartReducer.js';
 import { getProductsReducer,getProductDetailsReducer } from './reducers/productReducer.js';
 import { wishReducer } from './reducers/WishReducer.jsx';
+import { checkoutReducer } from './reducers/checkoutReducer.js';
 
 const reducer=combineReducers({
     getProducts:getProductsReducer,
     getProductDetails:getProductDetailsReducer,
     cart:cartReducer,
-    wishList: wishReducer
+    wishList: wishReducer,
+    checkout: checkoutReducer
 }
 )
 

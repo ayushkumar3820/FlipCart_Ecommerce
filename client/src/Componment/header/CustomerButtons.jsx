@@ -141,7 +141,7 @@ export const CustomerButtons = () => {
           <LoginButton onClick={()=>openDialog()} variant="contained" style={{width:138,height:32,color:"#2874f0",background:"white",fontWeight:600}}>Login</LoginButton>
       }
        
-      <Typography style={{ fontFamily:'inherit',marginRight:4,marginTop:5,width:152,fontWeight:600}}>Become a Seller</Typography>
+      <Typography style={{ fontFamily:'inherit',marginRight:4,marginTop:10,width:152,fontWeight:800}}>Become a Seller</Typography>
    
 
       <Typography style={{ marginRight: '3%' }}>

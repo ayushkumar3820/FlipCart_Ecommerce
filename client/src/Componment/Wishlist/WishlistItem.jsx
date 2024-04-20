@@ -56,7 +56,7 @@ const Remove = styled(Button)(({ theme }) => ({
 }));
 
 
-const WishlistIteam = ({ id, item, removeItemFromWish }) => {
+const WishlistItem = ({ id, item, removeItemFromWish }) => {
     const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png';
 
     return (
@@ -88,4 +88,4 @@ const WishlistIteam = ({ id, item, removeItemFromWish }) => {
     );
 }
 
-export default WishlistIteam;
+export default WishlistItem;

@@ -11,8 +11,9 @@ import TotalView from './TotalView';
 import EmptyCart from './EmptyCart';
 import CartItem from './CartItem';
 
-import {post} from '../../utils/paytm';
+// import {post} from '../../utils/paytm';
 import { payUsingPaytm } from '../../service/api';
+import loadRazorpay from '../../utils/loadpayment';
 
 const Component = styled(Grid)(({ theme }) => ({
     padding: '30px 135px',
@@ -77,7 +78,7 @@ const Cart = () => {
            action: 'https://securegw-stage.paytm.in/order/process',
             params: response    
          }
-        post(information);
+         loadRazorpay(information);
     }
 
     return (

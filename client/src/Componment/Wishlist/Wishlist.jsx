@@ -5,8 +5,8 @@ import { useParams } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { AddWishItem,RemoveWishItem } from "../../redux/actions/WishActions";
-import WishlistIteam from "./WishlistIteam";
-import EmptyWishlist from "./EmptyWishlist";
+import WishlistItem from './WishlistItem';
+import EmptyWishlist from './EmptyWishlist';
 
 
 //import {post} from '../../utils/paytm';
@@ -88,7 +88,7 @@ const Wishlist = () => {
         </Header>
 
         { wishIteams.map((item, idx) => (
-          <WishlistIteam item={item}  key={idx} removeItemFromWish={removeItemFromWish}/>
+          <WishlistItem item={item}  key={idx} removeItemFromWish={removeItemFromWish}/>
         ))}
 
         <BottomWrapper>

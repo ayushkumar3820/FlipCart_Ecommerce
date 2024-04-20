@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DetaliView from './detalis/DetailView';
 import Cart from './Componment/cart/Cart';
 import Footer from './Componment/Footer/Footer';
+import Wishlist from './Componment/Wishlist/Wishlist';
+import { Checkout } from './Componment/checkout/Checkout';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/product/:id' element={<DetaliView />} />
             <Route path='/cart' element={<Cart/>}/>
+            <Route path='/wishlist' element={<Wishlist/>}/>
+            <Route path='/checkout' element={<Checkout/>}/>
           </Routes>
         </Box>
       </BrowserRouter>
