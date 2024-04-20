@@ -64,7 +64,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const LoginButton = styled(Button)`   
 
       margin: auto;
-      margin-bottom: 12px;
+      margin-bottom: 16px;
       margin-left: 19px;
       font-weight:600;
       margin-right:30px;
@@ -141,12 +141,12 @@ export const CustomerButtons = () => {
           <LoginButton onClick={()=>openDialog()} variant="contained" style={{width:138,height:32,color:"#2874f0",background:"white",fontWeight:600}}>Login</LoginButton>
       }
        
-      <Typography style={{ fontFamily:'inherit',marginRight:4,marginTop:10,width:152,fontWeight:800}}>Become a Seller</Typography>
+      <Typography style={{ fontFamily:'inherit',marginRight:4,marginTop:1.5,width:152,fontWeight:600}}>Become a Seller</Typography>
    
 
       <Typography style={{ marginRight: '3%' }}>
   <Button
-    style={{ marginTop: '-4%', fontWeight: 600, color: 'inherit' }}
+    style={{ marginTop: '-3%', fontWeight: 600, color: 'inherit' }}
     id="basic-button"
     aria-controls={opens ? 'basic-menu' : undefined}
     aria-haspopup="true"

@@ -6,12 +6,12 @@ import { getProducts as listProducts } from '../../redux/actions/productActions'
 import { Link } from 'react-router-dom';
 
 const SearchContainer = styled(Box)`
-  border-radius: 2px;
-  margin-left: 10px;
+  border-radius: 5px;
+  margin-right:2px;
   width: 38%;
   background-color: #fff;
   display: flex;
-  margin-bottom: 12 px;
+  margin-bottom: 17px;
 `;
 
 const SearchIconWrapper = styled(Box)`

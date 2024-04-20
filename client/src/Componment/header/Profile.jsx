@@ -3,7 +3,7 @@ import { Typography, Menu, MenuItem, Box, styled } from '@mui/material';
 import { PowerSettingsNew } from '@mui/icons-material';
 
 const Component = styled(Menu)`
-    margin-top: 5px;
+    margin-top: 10px;
 `;
 
 const Logout = styled(Typography)`

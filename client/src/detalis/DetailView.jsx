@@ -11,6 +11,7 @@ import ProductDetail from "./ProductDetail.jsx";
 
 const Component = styled(Box)`
   margin-top: 55px;
+ 
   background: #f2f2f2;
 `;
 
@@ -24,6 +25,7 @@ const Container = styled(Grid)(({ theme }) => ({
 
 const RightContainer = styled(Grid)`
   margin-top: 17px;
+
    & > p {
     margin-top: 10px;
     margin: 20px;
